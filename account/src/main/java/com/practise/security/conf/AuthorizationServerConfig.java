@@ -40,7 +40,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenValiditySeconds(3600)// 配置token有效时间 1小时
                 .authorizedGrantTypes("refresh_token","password")// 针对testId这个clientId的授权模式是哪些
                                          // (如上的配置只能用密码模式和刷新令牌,除此以外的授权模式不支持)
-                .scopes("all","read","write");// 能发出去的权限有哪些
+                .scopes("all","read","write")// 能发出去的权限有哪些
                                          // (如上的配置是请求令牌是携带的参数范围只能是"all","read","write"其中之一)
+                // 给第2个程序配置获取令牌信息
+                .and()
+                    .withClient("appId")
+                    .secret("appSecret")
+                    .accessTokenValiditySeconds(7200)
+                    .authorizedGrantTypes("refresh_token","password")
+                    .scopes("all","read","write");
+
+
     }
 }

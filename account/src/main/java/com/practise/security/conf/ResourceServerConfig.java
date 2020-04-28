@@ -20,11 +20,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private AuthenticationSuccess authenticationSuccess;
 
-    @Autowired
-    private AuthenticationFailure authenticationFailure;
+        @Autowired
+        private AuthenticationFailure authenticationFailure;
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
+        @Override
+        public void configure(HttpSecurity http) throws Exception {
 
         http
                 .formLogin()// 表单登陆
